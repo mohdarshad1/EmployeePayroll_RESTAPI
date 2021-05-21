@@ -53,7 +53,7 @@ public class EmployeePayrollTest {
 		return request.post("/employeepayroll");
 	}
 
-	/*@Test
+	@Test
 	public void givenNewEmployee_WhenAdded_ShouldMatchResponseCode201AndCount() {
 		EmployeePayrollData[] arrayOfEmployee = getEmployeeList();
 		employeePayrollRESTService = new EmployeePayrollService(Arrays.asList(arrayOfEmployee));
@@ -105,7 +105,7 @@ public class EmployeePayrollTest {
 		Response response = request.put("/employeepayroll/" + employeePayrollData.id);
 		int statusCode = response.getStatusCode();
 		assertEquals(200, statusCode);
-	}*/
+	}
 	
 	@Test
 	public void givenEmployeeDataFromJsonServer_WhenRetrieved_ShouldMatchEntries() {
