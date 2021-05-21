@@ -88,8 +88,8 @@ public class EmployeePayrollTest {
 			employeePayrollRESTService.addEmployeeToPayroll(employeePayrollData, REST_IO);
 		}
 		long entries = employeePayrollRESTService.countEntries(REST_IO);
-	//	assertEquals(5, entries);
-	}*/
+		assertEquals(5, entries);
+	}
 	
 	@Test
 	public void givenSalary_WhenUpdated_ShouldMatch200response() {
@@ -105,5 +105,15 @@ public class EmployeePayrollTest {
 		Response response = request.put("/employeepayroll/" + employeePayrollData.id);
 		int statusCode = response.getStatusCode();
 		assertEquals(200, statusCode);
+	}*/
+	
+	@Test
+	public void givenEmployeeDataFromJsonServer_WhenRetrieved_ShouldMatchEntries() {
+		EmployeePayrollData[] arrayOfEmployee = getEmployeeList();
+		EmployeePayrollService employeePayrollRESTService;
+		employeePayrollRESTService = new EmployeePayrollService(Arrays.asList(arrayOfEmployee));
+		long entries = employeePayrollRESTService.countEntries(REST_IO);
+		assertEquals(5, entries);
 	}
+
 }
